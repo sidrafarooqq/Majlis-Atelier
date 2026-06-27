@@ -70,12 +70,12 @@ const IMG = {
   service3: "https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=900&q=80",
   cta: "https://images.unsplash.com/photo-1616627781537-1be4e08a4f0a?auto=format&fit=crop&w=1600&q=80",
   portfolio: [
-    "https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1616137148650-4aa14651b02a?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1583845112203-29329902332e?auto=format&fit=crop&w=800&q=80",
+    "/cc.jpg",
+    "/b.jpg",
+    "/sofaaaa.jpg",
+    "/cur.jpg",
+    "/unn.jpg",
+    "/Sofa-White-1.webp",
   ],
   blog: [
     "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=800&q=80",
@@ -367,40 +367,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* BLOG PREVIEW */}
-      <section className="bg-muted/40 py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <SectionTitle eyebrow={t.blog.eyebrow} title={t.blog.title} />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {t.blog.items.map((post, i) => (
-              <article
-                key={post.title}
-                className="group overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-luxury"
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src={IMG.blog[i]}
-                    alt=""
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-5">
-                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                    <span className="rounded-full bg-gold/15 px-2.5 py-1 font-semibold text-gold">{post.tag}</span>
-                    <span>{post.date}</span>
-                  </div>
-                  <h3 className="mt-3 text-base font-bold leading-snug">{post.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{post.excerpt}</p>
-                  <button className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:underline">
-                    {t.common.readMore} <ArrowRight size={14} className="rtl:rotate-180" />
-                  </button>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* FINAL CTA */}
       <section className="relative isolate overflow-hidden py-24">

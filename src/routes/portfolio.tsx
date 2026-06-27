@@ -25,17 +25,17 @@ export const Route = createFileRoute("/portfolio")({
 type Cat = "all" | "curtains" | "sofas" | "upholstery";
 
 const works: { src: string; cat: Exclude<Cat, "all"> }[] = [
-  { src: "https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?auto=format&fit=crop&w=900&q=80", cat: "sofas" },
-  { src: "https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=900&q=80", cat: "curtains" },
-  { src: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80", cat: "upholstery" },
-  { src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80", cat: "sofas" },
-  { src: "https://images.unsplash.com/photo-1616137148650-4aa14651b02a?auto=format&fit=crop&w=900&q=80", cat: "curtains" },
-  { src: "https://images.unsplash.com/photo-1583845112203-29329902332e?auto=format&fit=crop&w=900&q=80", cat: "upholstery" },
+  { src: "/Sofa-White-1.webp", cat: "sofas" },
+  { src: "/cur.jpg", cat: "curtains" },
+  { src: "/unn.jpg", cat: "upholstery" },
+  { src: "/sofaaaa.jpg", cat: "sofas" },
+  { src: "/ccr.jpg", cat: "curtains" },
+  { src: "/unnnn.jpg", cat: "upholstery" },
   { src: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=900&q=80", cat: "sofas" },
-  { src: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80", cat: "curtains" },
+  { src: "/cc.jpg", cat: "curtains" },
   { src: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=80", cat: "upholstery" },
   { src: "https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=900&q=80", cat: "sofas" },
-  { src: "https://images.unsplash.com/photo-1582582494705-f8ce0b0c24f0?auto=format&fit=crop&w=900&q=80", cat: "curtains" },
+  { src: "/b.jpg", cat: "curtains" },
   { src: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?auto=format&fit=crop&w=900&q=80", cat: "upholstery" },
 ];
 

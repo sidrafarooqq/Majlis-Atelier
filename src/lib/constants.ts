@@ -9,11 +9,11 @@ export const CONTACT = {
   phone: "+966 54 923 8418",
   phoneRaw: "+966549238418",
   whatsapp: "https://wa.me/966549238418",
-  email: "rajamaouz4@gmail.com",
+  email: "samisafeer49@gmail.com",
   address_ar: "الرياض، المملكة العربية السعودية",
   address_en: "Riyadh, Saudi Arabia",
-  facebook: "https://www.facebook.com/share/17yXmR6CdL/",
-  instagram: "https://www.instagram.com/m.tfsylstyrw",
+  facebook: "https://www.facebook.com/profile.php?id=61590666845757",
+  instagram: "https://www.instagram.com/al_fakhama_curtains_786?igsh=c21od2R0cmZzYnk=",
 };
 
 export const STATS = [

@@ -72,27 +72,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-background py-20">
-        <div className="mx-auto max-w-7xl px-4 md:px-6">
-          <SectionTitle eyebrow="Team" title={a.team_title} />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-            {a.team.map((m) => (
-              <div key={m.name} className="overflow-hidden rounded-2xl border border-border bg-card text-center">
-                <div className="aspect-square overflow-hidden">
-                  <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent to-gold/30 text-5xl font-bold text-gold">
-                    {m.name.charAt(0)}
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h3 className="font-bold">{m.name}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{m.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+    
       <section className="bg-muted/40 py-20">
         <div className="mx-auto max-w-4xl px-4 md:px-6">
           <SectionTitle eyebrow="2009 → 2026" title={a.timeline_title} />
