@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { X } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { IMAGES } from "@/lib/catalog";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
 export const Route = createFileRoute("/portfolio")({
@@ -31,12 +32,18 @@ const works: { src: string; cat: Exclude<Cat, "all"> }[] = [
   { src: "/sofaaaa.jpg", cat: "sofas" },
   { src: "/ccr.jpg", cat: "curtains" },
   { src: "/unnnn.jpg", cat: "upholstery" },
-  { src: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=900&q=80", cat: "sofas" },
+  { src: IMAGES.bedroom, cat: "curtains" },
+  { src: IMAGES.sheer, cat: "curtains" },
+  { src: IMAGES.velvet, cat: "curtains" },
   { src: "/cc.jpg", cat: "curtains" },
-  { src: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=80", cat: "upholstery" },
-  { src: "https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=900&q=80", cat: "sofas" },
+  { src: IMAGES.roman, cat: "curtains" },
+  { src: IMAGES.zebra, cat: "curtains" },
+  { src: IMAGES.office, cat: "curtains" },
+  { src: IMAGES.hotel, cat: "curtains" },
   { src: "/b.jpg", cat: "curtains" },
-  { src: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?auto=format&fit=crop&w=900&q=80", cat: "upholstery" },
+  { src: IMAGES.majlis, cat: "curtains" },
+  { src: IMAGES.blackout, cat: "curtains" },
+  { src: IMAGES.wooden, cat: "curtains" },
 ];
 
 function PortfolioPage() {
@@ -59,7 +66,7 @@ function PortfolioPage() {
       <section className="relative isolate overflow-hidden border-b border-border bg-secondary py-24 text-secondary-foreground md:py-32">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/30 to-black/60" />
         <img
-          src="https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?auto=format&fit=crop&w=1900&q=80"
+          src={IMAGES.double}
           alt=""
           className="absolute inset-0 -z-20 h-full w-full object-cover opacity-25"
         />
