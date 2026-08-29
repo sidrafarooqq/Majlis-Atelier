@@ -128,6 +128,12 @@ function HomePage() {
               >
                 <MessageCircle size={16} /> {t.common.whatsapp}
               </a>
+              <Link
+                to="/curtains"
+                className="inline-flex items-center gap-2 rounded-full border border-gold/70 px-6 py-3 text-sm font-semibold text-gold transition hover:bg-gold hover:text-primary-foreground"
+              >
+                {c.explore} <ArrowRight size={14} className="rtl:rotate-180" />
+              </Link>
             </div>
           </motion.div>
 
@@ -279,6 +285,130 @@ function HomePage() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CURTAIN COLLECTION */}
+      <section className="border-y border-border bg-muted/40 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-4 md:px-6">
+          <SectionTitle
+            eyebrow={c.collection.eyebrow}
+            title={c.collection.title}
+            subtitle={c.collection.subtitle}
+          />
+          <div className="mt-14">
+            <CatalogGrid items={CURTAIN_CATEGORIES.slice(0, 6)} />
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              to="/curtains"
+              className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-primary-foreground shadow-luxury transition hover:bg-gold-dark"
+            >
+              {c.collection.all} <ArrowRight size={14} className="rtl:rotate-180" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* BLINDS */}
+      <section className="bg-background py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-4 md:px-6">
+          <SectionTitle eyebrow={c.blinds_page.eyebrow} title={c.blinds_page.title} subtitle={c.blinds_page.subtitle} />
+          <div className="mt-14">
+            <CatalogGrid items={BLIND_CATEGORIES.slice(0, 3)} />
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              to="/blinds"
+              className="inline-flex items-center gap-2 rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-secondary-foreground transition hover:bg-gold hover:text-primary-foreground"
+            >
+              {c.nav.blinds} <ArrowRight size={14} className="rtl:rotate-180" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section className="border-y border-border bg-muted/40 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-4 md:px-6">
+          <SectionTitle eyebrow={c.why.eyebrow} title={c.why.title} />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {c.why.items.map((w, i) => (
+              <div key={w.title} className="rounded-2xl border border-border bg-card p-6 transition hover:border-gold">
+                <div className="grid h-10 w-10 place-items-center rounded-full bg-accent text-sm font-bold text-gold">
+                  {i + 1}
+                </div>
+                <h3 className="mt-4 text-base font-bold">{w.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SPACES */}
+      <section className="bg-background py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-4 md:px-6">
+          <SectionTitle eyebrow={c.spaces.eyebrow} title={c.spaces.title} />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[IMAGES.bedroom, IMAGES.majlis, IMAGES.office, IMAGES.hotel].map((img, i) => (
+              <article key={c.spaces.items[i].title} className="group relative overflow-hidden rounded-2xl">
+                <img
+                  src={img}
+                  alt={c.spaces.items[i].title}
+                  width={1200}
+                  height={900}
+                  loading="lazy"
+                  className="aspect-[3/4] w-full object-cover transition duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                  <h3 className="text-lg font-bold">{c.spaces.items[i].title}</h3>
+                  <p className="mt-1 text-xs text-white/80">{c.spaces.items[i].body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INSTALLATION */}
+      <section className="border-y border-border bg-muted/40 py-20 md:py-28">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 md:grid-cols-2 md:px-6">
+          <div className="overflow-hidden rounded-2xl shadow-luxury">
+            <img
+              src={IMAGES.installation}
+              alt={locale === "ar" ? "فني يركّب ستائر في شقة فاخرة" : "Technician installing curtains in a luxury apartment"}
+              width={1200}
+              height={900}
+              loading="lazy"
+              className="aspect-[4/3] w-full object-cover"
+            />
+          </div>
+          <div>
+            <SectionTitle eyebrow={c.install.eyebrow} title={c.install.title} align="start" />
+            <ol className="mt-8 space-y-5">
+              {c.install.steps.map((s, i) => (
+                <li key={s.title} className="flex gap-4">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold text-sm font-bold text-primary-foreground">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-bold">{s.title}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">{s.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <a
+              href={CONTACT.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-primary-foreground shadow-luxury transition hover:bg-gold-dark"
+            >
+              <MessageCircle size={16} /> {c.quoteWhats}
+            </a>
           </div>
         </div>
       </section>
