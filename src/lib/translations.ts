@@ -21,9 +21,9 @@ export const translations = {
     },
     hero: {
       eyebrow: "صناعة فاخرة بلمسة سعودية",
-      title: "تفصيل وتنجيد الكنب والستائر بجودة فاخرة",
+      title: "تفصيل ستائر وبليندات فاخرة بالرياض",
       subtitle:
-        "نقدّم خدمات تفصيل الستائر وتنجيد الكنب بأرقى الخامات، وتصاميم مخصصة تليق بذوقك ومجلسك.",
+        "ستائر بلاك أوت وشيفون ومخمل وبليندات كهربائية — قياس مجاني بالموقع، خياطة في مشغلنا، وتركيب احترافي مضمون.",
     },
     about: {
       eyebrow: "من نحن",
@@ -213,9 +213,9 @@ export const translations = {
     },
     hero: {
       eyebrow: "Saudi craft, luxury finish",
-      title: "Premium Custom Curtains, Sofas & Upholstery",
+      title: "Premium Custom Curtains & Blinds in Riyadh",
       subtitle:
-        "Bespoke curtain tailoring and sofa upholstery with premium materials and designs that match your taste and your majlis.",
+        "Blackout, sheer, velvet and motorized curtains and blinds — free on-site measuring, in-house tailoring and expert installation.",
     },
     about: {
       eyebrow: "About Us",

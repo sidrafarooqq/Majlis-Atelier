@@ -2,9 +2,11 @@ import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { BRAND, CONTACT } from "@/lib/constants";
+import { COPY } from "@/lib/catalog";
 
 export function Footer() {
   const { t, locale } = useI18n();
+  const c = COPY[locale];
   const year = new Date().getFullYear();
 
   return (
@@ -45,6 +47,8 @@ export function Footer() {
             {t.footer.services_col}
           </h4>
           <ul className="mt-4 space-y-2 text-sm text-white/75">
+            <li><Link to="/curtains" className="hover:text-gold">{c.nav.curtains}</Link></li>
+            <li><Link to="/blinds" className="hover:text-gold">{c.nav.blinds}</Link></li>
             <li><Link to="/services" className="hover:text-gold">{t.services.curtain_title}</Link></li>
             <li><Link to="/services" className="hover:text-gold">{t.services.sofa_up_title}</Link></li>
             <li><Link to="/services" className="hover:text-gold">{t.services.sofa_make_title}</Link></li>
