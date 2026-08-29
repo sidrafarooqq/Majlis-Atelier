@@ -34,10 +34,11 @@ export const Route = createFileRoute("/")({
       { name: "keywords", content: "تفصيل ستائر, تنجيد كنب, الرياض, curtain tailoring, sofa upholstery, Riyadh" },
       { property: "og:title", content: "Majlis Atelier — Custom Curtains & Sofa Upholstery Riyadh" },
       { property: "og:description", content: "Premium custom curtains, sofas and upholstery in Riyadh since 2009." },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://plush-threads-studio.lovable.app/" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://plush-threads-studio.lovable.app/" }],
     scripts: [
       {
         type: "application/ld+json",

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check, MessageCircle, Scissors, Sofa, Hammer } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { IMAGES } from "@/lib/catalog";
 import { CONTACT } from "@/lib/constants";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
@@ -28,21 +29,21 @@ function ServicesPage() {
 
   const items = [
     {
-      img: "https://images.unsplash.com/photo-1513161455079-7dc1de15ef3e?auto=format&fit=crop&w=1100&q=80",
+      img: IMAGES.double,
       icon: Scissors,
       title: t.services.curtain_title,
       body: t.services.curtain_body,
       features: t.services.curtain_features,
     },
     {
-      img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1100&q=80",
+      img: "/sofaaaa.jpg",
       icon: Sofa,
       title: t.services.sofa_up_title,
       body: t.services.sofa_up_body,
       features: t.services.sofa_up_features,
     },
     {
-      img: "https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1100&q=80",
+      img: "/Sofa-White-1.webp",
       icon: Hammer,
       title: t.services.sofa_make_title,
       body: t.services.sofa_make_body,
@@ -55,7 +56,7 @@ function ServicesPage() {
       <section className="relative isolate overflow-hidden border-b border-border bg-secondary py-24 text-secondary-foreground md:py-32">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/30 to-black/60" />
         <img
-          src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1900&q=80"
+          src={IMAGES.luxury}
           alt=""
           className="absolute inset-0 -z-20 h-full w-full object-cover opacity-25"
         />
