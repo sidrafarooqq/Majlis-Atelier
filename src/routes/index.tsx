@@ -19,6 +19,8 @@ import { useI18n } from "@/lib/i18n";
 import { CONTACT, STATS } from "@/lib/constants";
 import { CountUp } from "@/components/ui/CountUp";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import { COPY, CURTAIN_CATEGORIES, BLIND_CATEGORIES, IMAGES } from "@/lib/catalog";
+import { CatalogGrid } from "@/components/catalog/CatalogGrid";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -62,30 +64,26 @@ export const Route = createFileRoute("/")({
 });
 
 const IMG = {
-  hero: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1900&q=80",
-  about1: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=900&q=80",
-  about2: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=80",
-  service1: "https://images.unsplash.com/photo-1513161455079-7dc1de15ef3e?auto=format&fit=crop&w=900&q=80",
-  service2: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=80",
-  service3: "https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=900&q=80",
-  cta: "https://images.unsplash.com/photo-1616627781537-1be4e08a4f0a?auto=format&fit=crop&w=1600&q=80",
+  hero: IMAGES.hero,
+  about1: IMAGES.majlis,
+  about2: IMAGES.fabric,
+  service1: IMAGES.double,
+  service2: IMAGES.velvet,
+  service3: IMAGES.custom,
+  cta: IMAGES.hotel,
   portfolio: [
+    IMAGES.bedroom,
+    IMAGES.sheer,
     "/cc.jpg",
-    "/b.jpg",
-    "/sofaaaa.jpg",
+    IMAGES.office,
+    IMAGES.blackout,
     "/cur.jpg",
-    "/unn.jpg",
-    "/Sofa-White-1.webp",
-  ],
-  blog: [
-    "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1618219740975-d40978bb7378?auto=format&fit=crop&w=800&q=80",
   ],
 };
 
 function HomePage() {
   const { t, locale } = useI18n();
+  const c = COPY[locale];
 
   return (
     <>
