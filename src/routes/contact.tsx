@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Phone, MessageCircle, Mail, MapPin, Facebook, Instagram, Send } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { IMAGES } from "@/lib/catalog";
 import { CONTACT } from "@/lib/constants";
 
 export const Route = createFileRoute("/contact")({
@@ -32,7 +33,7 @@ function ContactPage() {
       <section className="relative isolate overflow-hidden border-b border-border bg-secondary py-24 text-secondary-foreground md:py-32">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/30 to-black/60" />
         <img
-          src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1900&q=80"
+          src={IMAGES.linen}
           alt=""
           className="absolute inset-0 -z-20 h-full w-full object-cover opacity-25"
         />

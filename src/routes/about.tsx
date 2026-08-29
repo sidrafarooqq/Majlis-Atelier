@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Award, MessageCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { IMAGES } from "@/lib/catalog";
 import { CONTACT, STATS } from "@/lib/constants";
 import { CountUp } from "@/components/ui/CountUp";
 import { SectionTitle } from "@/components/ui/SectionTitle";
@@ -35,7 +36,7 @@ function AboutPage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 md:grid-cols-2 md:px-6">
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=80"
+              src={IMAGES.custom}
               alt=""
               className="aspect-[4/5] w-full rounded-2xl object-cover shadow-luxury"
               loading="lazy"
@@ -126,7 +127,7 @@ function PageHero({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
     <section className="relative isolate overflow-hidden border-b border-border bg-secondary py-24 text-secondary-foreground md:py-32">
       <img
-        src="https://images.unsplash.com/photo-1616627781537-1be4e08a4f0a?auto=format&fit=crop&w=1900&q=80"
+        src={IMAGES.majlis}
         alt=""
         className="absolute inset-0 -z-10 h-full w-full object-cover opacity-25"
       />
