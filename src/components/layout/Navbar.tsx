@@ -4,6 +4,7 @@ import { Menu, X, Moon, Sun, MessageCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { useTheme } from "@/lib/theme";
 import { BRAND, CONTACT } from "@/lib/constants";
+import { COPY } from "@/lib/catalog";
 
 export function Navbar() {
   const { t, locale, toggle: toggleLang } = useI18n();
@@ -18,11 +19,14 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const c = COPY[locale];
   const links = [
     { to: "/", label: t.nav.home },
-    { to: "/about", label: t.nav.about },
+    { to: "/curtains", label: c.nav.curtains },
+    { to: "/blinds", label: c.nav.blinds },
     { to: "/services", label: t.nav.services },
     { to: "/portfolio", label: t.nav.portfolio },
+    { to: "/about", label: t.nav.about },
     { to: "/contact", label: t.nav.contact },
   ] as const;
 
