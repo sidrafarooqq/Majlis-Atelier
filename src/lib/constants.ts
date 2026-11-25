@@ -9,7 +9,7 @@ export const CONTACT = {
   phone: "+966 54 847 3140",
   phoneRaw: "+966548473140",
   whatsapp: "https://wa.me/966548473140",
-  email: "samisafeer49@gmail.com",
+  email: "tafseelsatairsami@gmail.com",
   address_ar: "الرياض، المملكة العربية السعودية",
   address_en: "Riyadh, Saudi Arabia",
   facebook: "https://www.facebook.com/profile.php?id=61590666845757",

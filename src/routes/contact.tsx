@@ -26,7 +26,9 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   const { t, locale } = useI18n();
   const cp = t.contact_page;
-  const [sent, setSent] = useState(false);
+  const [emailUnavailable, setEmailUnavailable] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
+  const [whatsappDraftUrl, setWhatsappDraftUrl] = useState("");
 
   return (
     <>
@@ -123,27 +125,49 @@ function ContactPage() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                setSent(true);
+                const formData = new FormData(e.currentTarget);
+                const phone = String(formData.get("phone") ?? "").trim();
+                const phoneDigits = phone.replace(/\D/g, "");
+                if (phoneDigits.length < 7 || phoneDigits.length > 15) {
+                  setPhoneError(true);
+                  setEmailUnavailable(false);
+                  setWhatsappDraftUrl("");
+                  return;
+                }
+
+                setPhoneError(false);
+                const inquiry = [
+                  `Name: ${String(formData.get("name") ?? "").trim()}`,
+                  `Phone: ${phone}`,
+                  `Email: ${String(formData.get("email") ?? "").trim()}`,
+                  `Service: ${String(formData.get("service") ?? "").trim()}`,
+                  `Message: ${String(formData.get("message") ?? "").trim()}`,
+                ].join("\n");
+                setWhatsappDraftUrl(`${CONTACT.whatsapp}?text=${encodeURIComponent(inquiry)}`);
+                setEmailUnavailable(true);
               }}
               className="mt-6 rounded-2xl border border-border bg-card p-6 shadow-md md:p-8"
             >
               <div className="grid gap-4 sm:grid-cols-2">
-                <Field label={cp.name} name="name" required />
-                <Field label={cp.phone} name="phone" type="tel" required />
-                <Field label={cp.email} name="email" type="email" required className="sm:col-span-2" />
+                <Field label={cp.name} name="name" required maxLength={100} />
+                <Field label={cp.phone} name="phone" type="tel" required maxLength={32} />
+                <Field label={cp.email} name="email" type="email" required maxLength={255} className="sm:col-span-2" />
                 <div className="sm:col-span-2">
-                  <label className="mb-1.5 block text-sm font-semibold">{cp.service}</label>
-                  <select className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30">
+                  <label htmlFor="service" className="mb-1.5 block text-sm font-semibold">{cp.service}</label>
+                  <select id="service" name="service" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30">
                     {cp.service_options.map((opt) => (
                       <option key={opt}>{opt}</option>
                     ))}
                   </select>
                 </div>
                 <div className="sm:col-span-2">
-                  <label className="mb-1.5 block text-sm font-semibold">{cp.message}</label>
+                  <label htmlFor="message" className="mb-1.5 block text-sm font-semibold">{cp.message}</label>
                   <textarea
+                    id="message"
+                    name="message"
                     rows={5}
                     required
+                    maxLength={1000}
                     className="w-full resize-none rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30"
                   />
                 </div>
@@ -154,10 +178,28 @@ function ContactPage() {
               >
                 <Send size={16} /> {cp.submit}
               </button>
-              {sent && (
-                <p className="mt-4 rounded-xl bg-accent px-4 py-3 text-sm text-accent-foreground">
-                  {cp.sent}
+              {phoneError && (
+                <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">
+                  {cp.invalid_phone}
                 </p>
+              )}
+              {emailUnavailable && (
+                <div role="alert" className="mt-4 rounded-xl bg-accent px-4 py-4 text-sm text-accent-foreground">
+                  <p>{cp.email_unavailable}</p>
+                  {whatsappDraftUrl && (
+                    <>
+                      <a
+                        href={whatsappDraftUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-gold-dark"
+                      >
+                        <MessageCircle size={16} /> {cp.whatsapp_prefill}
+                      </a>
+                      <p className="mt-2 text-xs opacity-80">{cp.whatsapp_note}</p>
+                    </>
+                  )}
+                </div>
               )}
             </form>
           </div>
@@ -174,9 +216,10 @@ function Field({
 }: React.InputHTMLAttributes<HTMLInputElement> & { label: string; className?: string }) {
   return (
     <div className={className}>
-      <label className="mb-1.5 block text-sm font-semibold">{label}</label>
+      <label htmlFor={rest.name} className="mb-1.5 block text-sm font-semibold">{label}</label>
       <input
         {...rest}
+        id={rest.name}
         className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30"
       />
     </div>

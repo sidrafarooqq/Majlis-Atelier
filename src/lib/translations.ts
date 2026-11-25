@@ -183,7 +183,10 @@ export const translations = {
       submit: "إرسال",
       service_options: ["تفصيل ستائر", "تنجيد كنب", "تفصيل كنب", "استشارة"],
       address: "العنوان",
-      sent: "تم استلام طلبك! سنتواصل معك قريبًا.",
+      email_unavailable: "إرسال البريد الإلكتروني غير مفعّل حاليًا. أرسل استفسارك عبر واتساب الآن.",
+      invalid_phone: "يرجى إدخال رقم جوال صحيح.",
+      whatsapp_prefill: "إرسال الاستفسار عبر واتساب",
+      whatsapp_note: "سيُفتح واتساب برسالة جاهزة لمراجعتها وإرسالها بنفسك.",
     },
     footer: {
       tagline: "حرفة سعودية أصيلة منذ 2009",
@@ -375,7 +378,10 @@ export const translations = {
       submit: "Send",
       service_options: ["Curtain Tailoring", "Sofa Upholstery", "Custom Sofa", "Consultation"],
       address: "Address",
-      sent: "Thanks — we'll be in touch shortly.",
+      email_unavailable: "Email delivery is not set up yet. Send your inquiry on WhatsApp for now.",
+      invalid_phone: "Please enter a valid phone number.",
+      whatsapp_prefill: "Send inquiry on WhatsApp",
+      whatsapp_note: "WhatsApp will open with a draft for you to review and send.",
     },
     footer: {
       tagline: "Authentic Saudi craft since 2009",

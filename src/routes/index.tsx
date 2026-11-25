@@ -48,6 +48,7 @@ export const Route = createFileRoute("/")({
           name: "Majlis Atelier",
           alternateName: "مجلس أتيليه",
           description: "Custom curtain tailoring and sofa upholstery atelier in Riyadh, Saudi Arabia.",
+          email: CONTACT.email,
           telephone: "+966548473140",
           address: {
             "@type": "PostalAddress",
