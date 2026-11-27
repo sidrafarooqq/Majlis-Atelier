@@ -35,6 +35,7 @@ interface FormErrors {
 function ContactPage() {
   const { t, locale } = useI18n();
   const cp = t.contact_page;
+<<<<<<< HEAD
   const whatsappUrl = getWhatsAppUrl(locale);
 
   const [name, setName] = useState("");
@@ -158,6 +159,11 @@ function ContactPage() {
       setIsSubmitting(false);
     }
   }
+=======
+  const [emailUnavailable, setEmailUnavailable] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
+  const [whatsappDraftUrl, setWhatsappDraftUrl] = useState("");
+>>>>>>> 4ea8b9c48b6aef4d2aa53cf50ffa125d6192e1df
 
   return (
     <>
@@ -295,8 +301,34 @@ function ContactPage() {
           <div>
             <h2 className="text-2xl font-bold">{cp.form_title}</h2>
             <form
+<<<<<<< HEAD
               onSubmit={handleSubmit}
               noValidate
+=======
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const phone = String(formData.get("phone") ?? "").trim();
+                const phoneDigits = phone.replace(/\D/g, "");
+                if (phoneDigits.length < 7 || phoneDigits.length > 15) {
+                  setPhoneError(true);
+                  setEmailUnavailable(false);
+                  setWhatsappDraftUrl("");
+                  return;
+                }
+
+                setPhoneError(false);
+                const inquiry = [
+                  `Name: ${String(formData.get("name") ?? "").trim()}`,
+                  `Phone: ${phone}`,
+                  `Email: ${String(formData.get("email") ?? "").trim()}`,
+                  `Service: ${String(formData.get("service") ?? "").trim()}`,
+                  `Message: ${String(formData.get("message") ?? "").trim()}`,
+                ].join("\n");
+                setWhatsappDraftUrl(`${CONTACT.whatsapp}?text=${encodeURIComponent(inquiry)}`);
+                setEmailUnavailable(true);
+              }}
+>>>>>>> 4ea8b9c48b6aef4d2aa53cf50ffa125d6192e1df
               className="mt-6 rounded-2xl border border-border bg-card p-6 shadow-md md:p-8"
             >
               {/* Honeypot field hidden from human visitors */}
@@ -312,6 +344,7 @@ function ContactPage() {
               />
 
               <div className="grid gap-4 sm:grid-cols-2">
+<<<<<<< HEAD
                 <Field
                   id="contact-name"
                   label={cp.name}
@@ -371,6 +404,14 @@ function ContactPage() {
                     }}
                     className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30"
                   >
+=======
+                <Field label={cp.name} name="name" required maxLength={100} />
+                <Field label={cp.phone} name="phone" type="tel" required maxLength={32} />
+                <Field label={cp.email} name="email" type="email" required maxLength={255} className="sm:col-span-2" />
+                <div className="sm:col-span-2">
+                  <label htmlFor="service" className="mb-1.5 block text-sm font-semibold">{cp.service}</label>
+                  <select id="service" name="service" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30">
+>>>>>>> 4ea8b9c48b6aef4d2aa53cf50ffa125d6192e1df
                     {cp.service_options.map((opt) => (
                       <option key={opt} value={opt}>
                         {opt}
@@ -382,6 +423,7 @@ function ContactPage() {
                   )}
                 </div>
                 <div className="sm:col-span-2">
+<<<<<<< HEAD
                   <label htmlFor="contact-message" className="mb-1.5 block text-sm font-semibold">
                     {cp.message}
                   </label>
@@ -395,6 +437,15 @@ function ContactPage() {
                       setMessage(e.target.value);
                       if (fieldErrors.message) setFieldErrors((prev) => ({ ...prev, message: undefined }));
                     }}
+=======
+                  <label htmlFor="message" className="mb-1.5 block text-sm font-semibold">{cp.message}</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    required
+                    maxLength={1000}
+>>>>>>> 4ea8b9c48b6aef4d2aa53cf50ffa125d6192e1df
                     className="w-full resize-none rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30"
                   />
                   {fieldErrors.message && (
@@ -411,6 +462,7 @@ function ContactPage() {
                 {isSubmitting ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
                 {isSubmitting ? cp.sending : cp.submit}
               </button>
+<<<<<<< HEAD
 
               {submitStatus === "success" && (
                 <div
@@ -451,6 +503,30 @@ function ContactPage() {
                     </a>
                   </div>
                 </div>
+=======
+              {phoneError && (
+                <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">
+                  {cp.invalid_phone}
+                </p>
+>>>>>>> 4ea8b9c48b6aef4d2aa53cf50ffa125d6192e1df
+              )}
+              {emailUnavailable && (
+                <div role="alert" className="mt-4 rounded-xl bg-accent px-4 py-4 text-sm text-accent-foreground">
+                  <p>{cp.email_unavailable}</p>
+                  {whatsappDraftUrl && (
+                    <>
+                      <a
+                        href={whatsappDraftUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-gold-dark"
+                      >
+                        <MessageCircle size={16} /> {cp.whatsapp_prefill}
+                      </a>
+                      <p className="mt-2 text-xs opacity-80">{cp.whatsapp_note}</p>
+                    </>
+                  )}
+                </div>
               )}
             </form>
           </div>
@@ -474,13 +550,21 @@ function Field({
 }) {
   return (
     <div className={className}>
+<<<<<<< HEAD
       <label htmlFor={id} className="mb-1.5 block text-sm font-semibold">
         {label}
       </label>
+=======
+      <label htmlFor={rest.name} className="mb-1.5 block text-sm font-semibold">{label}</label>
+>>>>>>> 4ea8b9c48b6aef4d2aa53cf50ffa125d6192e1df
       <input
         id={id}
         {...rest}
+<<<<<<< HEAD
         aria-invalid={Boolean(error)}
+=======
+        id={rest.name}
+>>>>>>> 4ea8b9c48b6aef4d2aa53cf50ffa125d6192e1df
         className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30"
       />
       {error && <p className="mt-1.5 text-xs text-destructive">{error}</p>}

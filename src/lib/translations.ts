@@ -134,6 +134,7 @@ export const translations = {
         "استشارة وقياس مجاني",
       ],
       address: "العنوان",
+<<<<<<< HEAD
       sent: "تم استلام رسالتك وإرسالها بنجاح! سنتواصل معك قريبًا.",
       errorGeneric: "تعذر إرسال الرسالة حاليًا. يرجى المحاولة مرة أخرى أو التواصل معنا مباشرة عبر واتساب أو الهاتف.",
       errorNotConfigured: "خدمة البريد الإلكتروني قيد الإعداد حاليًا. يرجى التواصل معنا فورًا عبر واتساب أو الاتصال الهاتفي.",
@@ -145,6 +146,12 @@ export const translations = {
         service: "يرجى اختيار الخدمة المطلوبة.",
         message: "يرجى كتابة تفاصيل طلبك (10 أحرف على الأقل).",
       },
+=======
+      email_unavailable: "إرسال البريد الإلكتروني غير مفعّل حاليًا. أرسل استفسارك عبر واتساب الآن.",
+      invalid_phone: "يرجى إدخال رقم جوال صحيح.",
+      whatsapp_prefill: "إرسال الاستفسار عبر واتساب",
+      whatsapp_note: "سيُفتح واتساب برسالة جاهزة لمراجعتها وإرسالها بنفسك.",
+>>>>>>> 4ea8b9c48b6aef4d2aa53cf50ffa125d6192e1df
     },
     footer: {
       tagline: "تفصيل وتركيب الستائر والبليندات والكنب بالرياض",
@@ -287,6 +294,7 @@ export const translations = {
         "Free On-Site Consultation",
       ],
       address: "Address",
+<<<<<<< HEAD
       sent: "Your enquiry has been sent! We will contact you shortly.",
       errorGeneric: "We could not send your message right now. Please try again or reach us directly on WhatsApp or by phone.",
       errorNotConfigured: "Email delivery is currently being configured. Please contact us directly on WhatsApp or by phone for immediate service.",
@@ -298,6 +306,12 @@ export const translations = {
         service: "Please select a service.",
         message: "Please enter your message (at least 10 characters).",
       },
+=======
+      email_unavailable: "Email delivery is not set up yet. Send your inquiry on WhatsApp for now.",
+      invalid_phone: "Please enter a valid phone number.",
+      whatsapp_prefill: "Send inquiry on WhatsApp",
+      whatsapp_note: "WhatsApp will open with a draft for you to review and send.",
+>>>>>>> 4ea8b9c48b6aef4d2aa53cf50ffa125d6192e1df
     },
     footer: {
       tagline: "Custom Curtains, Blinds & Upholstery in Riyadh",

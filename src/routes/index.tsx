@@ -48,7 +48,41 @@ export const Route = createFileRoute("/")({
           "Sofa Upholstery Riyadh",
         ],
       },
+<<<<<<< HEAD
     }),
+=======
+      { name: "keywords", content: "تفصيل ستائر, تنجيد كنب, الرياض, curtain tailoring, sofa upholstery, Riyadh" },
+      { property: "og:title", content: "Majlis Atelier — Custom Curtains & Sofa Upholstery Riyadh" },
+      { property: "og:description", content: "Premium custom curtains, sofas and upholstery in Riyadh since 2009." },
+      { property: "og:url", content: "https://plush-threads-studio.lovable.app/" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [{ rel: "canonical", href: "https://plush-threads-studio.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Majlis Atelier",
+          alternateName: "مجلس أتيليه",
+          description: "Custom curtain tailoring and sofa upholstery atelier in Riyadh, Saudi Arabia.",
+          email: CONTACT.email,
+          telephone: "+966548473140",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Riyadh",
+            addressCountry: "SA",
+          },
+          areaServed: "Riyadh, Saudi Arabia",
+          priceRange: "$$",
+          openingHours: "Sa-Th 09:00-22:00",
+        }),
+      },
+    ],
+  }),
+>>>>>>> 4ea8b9c48b6aef4d2aa53cf50ffa125d6192e1df
   component: HomePage,
 });
 
