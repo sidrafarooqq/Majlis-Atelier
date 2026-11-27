@@ -13,16 +13,12 @@ export const BRAND = {
 export const CONTACT = {
   phone: "+966 54 847 3140",
   phoneRaw: "+966548473140",
-<<<<<<< HEAD
   whatsappBase: "https://wa.me/966548473140",
   whatsapp:
     "https://wa.me/966548473140?text=" +
     encodeURIComponent(
       "السلام عليكم تفصيل ستائر سامي، أود الاستفسار عن تفصيل الستائر وحجز موعد قياس مجاني في الرياض.",
     ),
-=======
-  whatsapp: "https://wa.me/966548473140",
->>>>>>> 4ea8b9c48b6aef4d2aa53cf50ffa125d6192e1df
   email: "tafseelsatairsami@gmail.com",
   address_ar: "الرياض، المملكة العربية السعودية",
   address_en: "Riyadh, Saudi Arabia",
