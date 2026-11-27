@@ -4,18 +4,38 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { I18nProvider } from "@/lib/i18n";
+import { I18nProvider, useI18n } from "@/lib/i18n";
 import { ThemeProvider } from "@/lib/theme";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingButtons } from "@/components/layout/FloatingButtons";
+import { BRAND } from "@/lib/constants";
+import { GOOGLE_ADS_ID, GTM_CONTAINER_ID, trackPageView } from "@/lib/tracking";
+
+const TRACKING_BOOTSTRAP_SCRIPT = `
+(function(w,d,s,l,i,aw){
+  if (w.__tafseelTrackInit) return;
+  w.__tafseelTrackInit = true;
+  w[l] = w[l] || [];
+  w.gtag = w.gtag || function(){ w[l].push(arguments); };
+  w.gtag('js', new Date());
+  w.gtag('config', aw);
+  w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+  var f = d.getElementsByTagName(s)[0];
+  var gtm = d.createElement(s);
+  gtm.async = true;
+  gtm.src = 'https://www.googletagmanager.com/gtm.js?id=' + i;
+  f.parentNode.insertBefore(gtm, f);
+})(window, document, 'script', 'dataLayer', '${GTM_CONTAINER_ID}', '${GOOGLE_ADS_ID}');
+`;
 
 function NotFoundComponent() {
   return (
@@ -82,16 +102,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Majlis Atelier — Custom Curtains & Sofa Upholstery Riyadh" },
-      {
-        name: "description",
-        content: "Premium curtain tailoring and sofa upholstery in Riyadh since 2009.",
-      },
-      { property: "og:site_name", content: "Majlis Atelier" },
-      { property: "og:type", content: "website" },
       { property: "og:locale", content: "ar_SA" },
       { property: "og:locale:alternate", content: "en_US" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:site_name", content: BRAND.name_en },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
   }),
@@ -106,13 +119,46 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <head>
         <HeadContent />
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+        />
+        <script dangerouslySetInnerHTML={{ __html: TRACKING_BOOTSTRAP_SCRIPT }} />
       </head>
       <body>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_CONTAINER_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         {children}
         <Scripts />
       </body>
     </html>
   );
+}
+
+function RouteChangeTracker() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { locale } = useI18n();
+  const prevPathRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (prevPathRef.current === null) {
+      prevPathRef.current = pathname;
+      return;
+    }
+    if (prevPathRef.current !== pathname) {
+      prevPathRef.current = pathname;
+      trackPageView(pathname, locale);
+    }
+  }, [pathname, locale]);
+
+  return null;
 }
 
 function RootComponent() {
@@ -122,6 +168,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <I18nProvider>
+          <RouteChangeTracker />
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1">

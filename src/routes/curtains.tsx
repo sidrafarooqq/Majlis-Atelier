@@ -1,46 +1,58 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MessageCircle, Phone, ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, getWhatsAppUrl } from "@/lib/constants";
 import { COPY, CURTAIN_CATEGORIES, IMAGES } from "@/lib/catalog";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { CatalogGrid } from "@/components/catalog/CatalogGrid";
+import { buildRouteHead } from "@/lib/seo";
+import { trackPhoneClick, trackWhatsAppClick } from "@/lib/tracking";
 
 export const Route = createFileRoute("/curtains")({
-  head: () => ({
-    meta: [
-      { title: "Curtain Collection — Blackout, Sheer & Velvet Curtains Riyadh | مجموعة الستائر" },
-      {
-        name: "description",
-        content:
-          "كتالوج ستائر مفصّلة بالرياض: بلاك أوت، شيفون، مخمل، كتّان، ستائر كهربائية وتفصيل حسب الطلب. Made-to-measure curtain collection in Riyadh: blackout, sheer, velvet, linen and motorized curtains.",
+  head: () =>
+    buildRouteHead({
+      path: "/curtains",
+      title: "مجموعة الستائر — تفصيل ستائر فاخرة وعصرية بالرياض | Tafseel Satair Sami",
+      description:
+        "تفصيل ستائر بالرياض حسب المقاس: ستائر بلاك أوت، شيفون، مخمل، كتّان، ستائر عصرية وكلاسيكية وكهربائية مع قياس مجاني وتركيب ستائر بالرياض. Custom curtains, luxury, modern, blackout, sheer & motorized window curtains in Riyadh.",
+      keywords:
+        "تفصيل ستائر بالرياض, ستائر الرياض, تفصيل ستائر حسب المقاس, ستائر فاخرة بالرياض, ستائر عصرية بالرياض, تركيب ستائر بالرياض, Custom Curtains Riyadh, Luxury Curtains Riyadh, Modern Curtains Riyadh, Window Curtains Riyadh, Made to Measure Curtains Riyadh",
+      ogTitle: "Custom Curtains Riyadh — Luxury, Modern, Blackout & Sheer | Tafseel Satair Sami",
+      ogDescription:
+        "Made to measure window curtains in Riyadh: blackout, sheer, velvet, linen, modern ripple-fold, classic and motorized curtains.",
+      breadcrumbName: "Curtains",
+      service: {
+        name: "Custom Curtain Tailoring & Installation in Riyadh",
+        description:
+          "Made-to-measure luxury, modern, blackout, sheer, velvet, linen and motorized window curtains with free measuring and installation in Riyadh.",
+        serviceTypes: [
+          "Custom Curtains Riyadh",
+          "Luxury Curtains Riyadh",
+          "Modern Curtains Riyadh",
+          "Made to Measure Curtains Riyadh",
+          "Blackout Curtains Riyadh",
+        ],
       },
-      { property: "og:title", content: "Curtain Collection — Majlis Atelier Riyadh" },
-      {
-        property: "og:description",
-        content: "Blackout, sheer, velvet, linen, classic, modern and motorized custom curtains in Riyadh.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:url", content: "https://plush-threads-studio.lovable.app/curtains" },
-    ],
-    links: [{ rel: "canonical", href: "https://plush-threads-studio.lovable.app/curtains" }],
-  }),
+    }),
   component: CurtainsPage,
 });
 
 function CurtainsPage() {
   const { locale } = useI18n();
   const c = COPY[locale];
+  const whatsappUrl = getWhatsAppUrl(locale, locale === "ar" ? "تفصيل الستائر" : "Custom Curtains");
 
   return (
     <>
       <section className="relative isolate overflow-hidden border-b border-border py-24 md:py-32">
         <img
           src={IMAGES.luxury}
-          alt={locale === "ar" ? "ستائر فاخرة في صالة راقية" : "Luxury curtains in an elegant living room"}
+          alt={locale === "ar" ? "ستائر فاخرة بالرياض في صالة راقية" : "Luxury custom curtains in a Riyadh living room"}
           width={1200}
           height={900}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 -z-20 h-full w-full object-cover"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/65 via-black/55 to-black/75" />
@@ -52,9 +64,10 @@ function CurtainsPage() {
           <p className="mt-4 text-white/80">{c.curtains_page.subtitle}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
-              href={CONTACT.whatsapp}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("curtains_hero")}
               className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-primary-foreground shadow-luxury transition hover:bg-gold-dark"
             >
               <MessageCircle size={16} /> {c.quoteWhats}
@@ -62,6 +75,7 @@ function CurtainsPage() {
             <a
               href={`tel:${CONTACT.phoneRaw}`}
               dir="ltr"
+              onClick={() => trackPhoneClick("curtains_hero")}
               className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
             >
               <Phone size={16} /> {CONTACT.phone}
@@ -84,10 +98,11 @@ function CurtainsPage() {
           <div className="overflow-hidden rounded-2xl shadow-luxury">
             <img
               src={IMAGES.fabric}
-              alt={locale === "ar" ? "عيّنات أقمشة ستائر فاخرة" : "Luxury curtain fabric swatches"}
+              alt={locale === "ar" ? "عيّنات أقمشة تفصيل ستائر بالرياض" : "Custom curtain fabric swatches in Riyadh"}
               width={1200}
               height={900}
               loading="lazy"
+              decoding="async"
               className="aspect-[4/3] w-full object-cover"
             />
           </div>
@@ -106,12 +121,20 @@ function CurtainsPage() {
                 </li>
               ))}
             </ol>
-            <Link
-              to="/blinds"
-              className="mt-8 inline-flex items-center gap-2 rounded-full border border-gold px-5 py-2.5 text-sm font-semibold text-gold transition hover:bg-gold hover:text-primary-foreground"
-            >
-              {c.nav.blinds} <ArrowRight size={14} className="rtl:rotate-180" />
-            </Link>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/blinds"
+                className="inline-flex items-center gap-2 rounded-full border border-gold px-5 py-2.5 text-sm font-semibold text-gold transition hover:bg-gold hover:text-primary-foreground"
+              >
+                {c.nav.blinds} <ArrowRight size={14} className="rtl:rotate-180" />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-secondary px-5 py-2.5 text-sm font-semibold text-secondary-foreground transition hover:bg-gold hover:text-primary-foreground"
+              >
+                {locale === "ar" ? "احجز قياس مجاني" : "Book Free Measurement"}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

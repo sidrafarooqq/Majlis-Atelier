@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { CONTACT } from "@/lib/constants";
+import { getWhatsAppUrl } from "@/lib/constants";
 import { COPY, type CatalogItem } from "@/lib/catalog";
+import { trackWhatsAppClick } from "@/lib/tracking";
 
 export function CatalogGrid({ items }: { items: CatalogItem[] }) {
   const { locale } = useI18n();
@@ -12,6 +13,7 @@ export function CatalogGrid({ items }: { items: CatalogItem[] }) {
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item, i) => {
         const copy = item[locale];
+        const whatsappUrl = getWhatsAppUrl(locale, copy.title);
         return (
           <motion.article
             key={item.slug}
@@ -28,6 +30,7 @@ export function CatalogGrid({ items }: { items: CatalogItem[] }) {
                 width={1200}
                 height={900}
                 loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
               />
             </div>
@@ -35,9 +38,10 @@ export function CatalogGrid({ items }: { items: CatalogItem[] }) {
               <h3 className="text-xl font-bold">{copy.title}</h3>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{copy.body}</p>
               <a
-                href={CONTACT.whatsapp}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("catalog_card", item.slug)}
                 className="mt-5 inline-flex w-fit items-center gap-2 rounded-full border border-gold px-4 py-2 text-xs font-semibold text-gold transition hover:bg-gold hover:text-primary-foreground"
               >
                 <MessageCircle size={14} /> {c.quote}

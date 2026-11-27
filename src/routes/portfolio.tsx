@@ -3,53 +3,148 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { IMAGES } from "@/lib/catalog";
-import { SectionTitle } from "@/components/ui/SectionTitle";
+import { buildRouteHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/portfolio")({
-  head: () => ({
-    meta: [
-      { title: "Portfolio — Majlis Atelier | معرض الأعمال" },
-      {
-        name: "description",
-        content:
-          "نماذج من مشاريع الستائر والكنب والتنجيد التي نفّذناها بالرياض. A selection of curtain, sofa and upholstery projects we've delivered in Riyadh.",
-      },
-      { property: "og:title", content: "Portfolio — Majlis Atelier" },
-      { property: "og:description", content: "Selected curtain, sofa and upholstery projects." },
-      { property: "og:url", content: "/portfolio" },
-    ],
-    links: [{ rel: "canonical", href: "/portfolio" }],
-  }),
+  head: () =>
+    buildRouteHead({
+      path: "/portfolio",
+      title: "أعمالنا — مشاريع تفصيل وتركيب ستائر بالرياض | Tafseel Satair Sami",
+      description:
+        "معرض أعمال تفصيل ستائر سامي بالرياض: ستائر مجالس، ستائر عصرية، ستائر بلاك أوت وشيفون وبليندات وتنجيد كنب. Selected custom curtains, blinds and upholstery projects in Riyadh.",
+      keywords:
+        "معرض أعمال ستائر بالرياض, تفصيل ستائر بالرياض, تركيب ستائر بالرياض, ستائر عصرية بالرياض, Custom Curtains Riyadh, Curtain Installation Riyadh",
+      ogTitle: "Portfolio — Custom Curtains & Majlis Projects Riyadh | Tafseel Satair Sami",
+      ogDescription: "Selected custom curtain, blinds, sofa and upholstery projects delivered in Riyadh.",
+      breadcrumbName: "Portfolio",
+    }),
   component: PortfolioPage,
 });
 
 type Cat = "all" | "curtains" | "sofas" | "upholstery";
 
-const works: { src: string; cat: Exclude<Cat, "all"> }[] = [
-  { src: "/Sofa-White-1.webp", cat: "sofas" },
-  { src: "/cur.jpg", cat: "curtains" },
-  { src: "/unn.jpg", cat: "upholstery" },
-  { src: "/sofaaaa.jpg", cat: "sofas" },
-  { src: "/ccr.jpg", cat: "curtains" },
-  { src: "/unnnn.jpg", cat: "upholstery" },
-  { src: IMAGES.bedroom, cat: "curtains" },
-  { src: IMAGES.sheer, cat: "curtains" },
-  { src: IMAGES.velvet, cat: "curtains" },
-  { src: "/cc.jpg", cat: "curtains" },
-  { src: IMAGES.roman, cat: "curtains" },
-  { src: IMAGES.zebra, cat: "curtains" },
-  { src: IMAGES.office, cat: "curtains" },
-  { src: IMAGES.hotel, cat: "curtains" },
-  { src: "/b.jpg", cat: "curtains" },
-  { src: IMAGES.majlis, cat: "curtains" },
-  { src: IMAGES.blackout, cat: "curtains" },
-  { src: IMAGES.wooden, cat: "curtains" },
+interface PortfolioWork {
+  src: string;
+  cat: Exclude<Cat, "all">;
+  ar: string;
+  en: string;
+}
+
+const works: PortfolioWork[] = [
+  {
+    src: "/images/custom-white-l-sofa-riyadh.webp",
+    cat: "sofas",
+    ar: "تفصيل كنب زاوية أبيض مع ستائر صالة في الرياض",
+    en: "Custom white L-shaped sofa and living room curtains in Riyadh",
+  },
+  {
+    src: "/images/grey-ripple-fold-curtains-riyadh.jpg",
+    cat: "curtains",
+    ar: "ستائر عصرية ويفي رمادية بسكة سقف في الرياض",
+    en: "Modern grey ripple-fold curtains on ceiling track in Riyadh",
+  },
+  {
+    src: "/images/beige-majlis-sofa-curtains-riyadh.jpg",
+    cat: "upholstery",
+    ar: "تنجيد كنب مجلس بيج مع ستائر شيفون في الرياض",
+    en: "Beige majlis sofa upholstery with sheer curtains in Riyadh",
+  },
+  {
+    src: "/images/charcoal-upholstered-sofas-riyadh.jpg",
+    cat: "sofas",
+    ar: "كنب منجّد رمادي غامق مع ستائر ناعمة بالرياض",
+    en: "Charcoal upholstered sofas with sheer window curtains in Riyadh",
+  },
+  {
+    src: "/images/double-layer-sheer-blackout-curtains-riyadh.jpg",
+    cat: "curtains",
+    ar: "ستائر مزدوجة بلاك أوت وشيفون بتفصيل حسب المقاس بالرياض",
+    en: "Double-layer blackout and sheer ripple curtains tailored in Riyadh",
+  },
+  {
+    src: "/images/dining-room-sheer-curtains-riyadh.jpg",
+    cat: "upholstery",
+    ar: "ستائر شيفون وبلاك أوت لغرفة طعام وكراسي منجّدة بالرياض",
+    en: "Dining room sheer and blackout curtains with upholstered seating in Riyadh",
+  },
+  {
+    src: IMAGES.bedroom,
+    cat: "curtains",
+    ar: "تفصيل ستائر غرف نوم بلاك أوت بالرياض",
+    en: "Custom bedroom blackout curtains in Riyadh",
+  },
+  {
+    src: IMAGES.sheer,
+    cat: "curtains",
+    ar: "ستائر شيفون شفافة للصالات بالرياض",
+    en: "Sheer window curtains for living spaces in Riyadh",
+  },
+  {
+    src: IMAGES.velvet,
+    cat: "curtains",
+    ar: "ستائر مخمل فاخرة بالرياض",
+    en: "Luxury velvet curtains tailored in Riyadh",
+  },
+  {
+    src: "/images/sand-majlis-curtains-sofa-riyadh.jpg",
+    cat: "curtains",
+    ar: "ستائر وكنب مجلس بلون رملي دافئ في الرياض",
+    en: "Warm sand-toned majlis curtains and seating in Riyadh",
+  },
+  {
+    src: IMAGES.roman,
+    cat: "curtains",
+    ar: "ستائر رومانية مفصّلة حسب المقاس بالرياض",
+    en: "Made-to-measure Roman blinds in Riyadh",
+  },
+  {
+    src: IMAGES.zebra,
+    cat: "curtains",
+    ar: "ستائر زيبرا الرياض للتحكم بالإضاءة",
+    en: "Zebra blinds installed in Riyadh",
+  },
+  {
+    src: IMAGES.office,
+    cat: "curtains",
+    ar: "ستائر رول ومكاتب عصرية بالرياض",
+    en: "Modern office roller blinds and curtains in Riyadh",
+  },
+  {
+    src: IMAGES.hotel,
+    cat: "curtains",
+    ar: "ستائر فندقية مزدوجة للفلل والأجنحة بالرياض",
+    en: "Hotel-style double curtains for Riyadh villas and suites",
+  },
+  {
+    src: "/images/cream-sheer-ripple-curtains-riyadh.jpg",
+    cat: "curtains",
+    ar: "ستائر شيفون كريمي بسكة مخفية في الرياض",
+    en: "Cream sheer ripple curtains on recessed track in Riyadh",
+  },
+  {
+    src: IMAGES.majlis,
+    cat: "curtains",
+    ar: "ستائر مجالس فاخرة بالرياض",
+    en: "Luxury majlis drapery in Riyadh",
+  },
+  {
+    src: IMAGES.blackout,
+    cat: "curtains",
+    ar: "ستائر بلاك أوت عازلة للحرارة والضوء بالرياض",
+    en: "Thermal and light-blocking blackout curtains in Riyadh",
+  },
+  {
+    src: IMAGES.wooden,
+    cat: "curtains",
+    ar: "ستائر خشبية طبيعية للمكاتب بالرياض",
+    en: "Natural wooden blinds for studies and offices in Riyadh",
+  },
 ];
 
 function PortfolioPage() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [filter, setFilter] = useState<Cat>("all");
-  const [lightbox, setLightbox] = useState<string | null>(null);
+  const [lightbox, setLightbox] = useState<PortfolioWork | null>(null);
 
   const f = t.portfolio.filters;
   const tabs: { key: Cat; label: string }[] = [
@@ -68,6 +163,11 @@ function PortfolioPage() {
         <img
           src={IMAGES.double}
           alt=""
+          aria-hidden="true"
+          width={1200}
+          height={900}
+          loading="eager"
+          decoding="async"
           className="absolute inset-0 -z-20 h-full w-full object-cover opacity-25"
         />
         <div className="mx-auto max-w-3xl px-4 text-center md:px-6">
@@ -78,10 +178,12 @@ function PortfolioPage() {
 
       <section className="bg-background py-16">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
+          <h2 className="sr-only">{t.portfolio.title}</h2>
           <div className="flex flex-wrap justify-center gap-2">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
+                type="button"
                 onClick={() => setFilter(tab.key)}
                 className={`rounded-full border px-5 py-2 text-sm font-semibold transition ${
                   filter === tab.key
@@ -95,16 +197,29 @@ function PortfolioPage() {
           </div>
 
           <div className="mt-10 columns-2 gap-4 md:columns-3 lg:columns-4 [&>*]:mb-4">
-            {filtered.map((w) => (
-              <button
-                key={w.src}
-                onClick={() => setLightbox(w.src)}
-                className="group relative block w-full overflow-hidden rounded-2xl"
-              >
-                <img src={w.src} alt="" className="w-full transition duration-700 group-hover:scale-105" loading="lazy" />
-                <div className="absolute inset-0 bg-gold/0 transition group-hover:bg-gold/30" />
-              </button>
-            ))}
+            {filtered.map((w) => {
+              const altText = locale === "ar" ? w.ar : w.en;
+              return (
+                <button
+                  key={w.src}
+                  type="button"
+                  onClick={() => setLightbox(w)}
+                  aria-label={altText}
+                  className="group relative block w-full overflow-hidden rounded-2xl"
+                >
+                  <img
+                    src={w.src}
+                    alt={altText}
+                    width={900}
+                    height={900}
+                    className="w-full transition duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-gold/0 transition group-hover:bg-gold/30" />
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -113,15 +228,23 @@ function PortfolioPage() {
         <div
           className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85 p-4"
           onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={locale === "ar" ? lightbox.ar : lightbox.en}
         >
           <button
+            type="button"
             onClick={() => setLightbox(null)}
-            aria-label="Close"
+            aria-label={locale === "ar" ? "إغلاق" : "Close"}
             className="absolute right-5 top-5 grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white backdrop-blur transition hover:bg-white/20"
           >
             <X size={20} />
           </button>
-          <img src={lightbox} alt="" className="max-h-[90vh] max-w-[95vw] rounded-2xl object-contain" />
+          <img
+            src={lightbox.src}
+            alt={locale === "ar" ? lightbox.ar : lightbox.en}
+            className="max-h-[90vh] max-w-[95vw] rounded-2xl object-contain"
+          />
         </div>
       )}
     </>

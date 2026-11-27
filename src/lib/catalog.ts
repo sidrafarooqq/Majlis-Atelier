@@ -181,9 +181,9 @@ export const COPY = {
       title: "لماذا يختارنا عملاء الرياض",
       items: [
         { title: "قياس مجاني بالموقع", body: "نزورك، نقيس، ونقترح الخامة المناسبة — بدون رسوم." },
-        { title: "خامات أصلية", body: "أقمشة مستوردة مختارة يدويًا مع عيّنات ملموسة قبل الطلب." },
-        { title: "تركيب احترافي", body: "فريق تركيب مدرّب، وسكك وأنظمة تعليق عالية الجودة." },
-        { title: "ضمان سنة", body: "ضمان على الخياطة والتركيب والمحركات الكهربائية." },
+        { title: "خامات أصلية", body: "أقمشة مختارة بعناية مع عيّنات ملموسة قبل الطلب." },
+        { title: "تركيب احترافي", body: "فريق تركيب ستائر بالرياض مدرّب مع سكك وأنظمة تعليق عالية الجودة." },
+        { title: "تشطيب وضبط دقيق", body: "تفصيل ستائر حسب المقاس وضبط للكسرات والانسيابية بعد التركيب." },
       ],
     },
     install: {
@@ -192,7 +192,7 @@ export const COPY = {
       steps: [
         { title: "زيارة وقياس", body: "نحدد المقاسات ونناقش الأسلوب والإضاءة." },
         { title: "اختيار الخامة", body: "نعرض عينات الأقمشة والألوان في منزلك." },
-        { title: "التفصيل", body: "خياطة دقيقة في مشغلنا خلال 5–10 أيام عمل." },
+        { title: "التفصيل", body: "تفصيل ستائر حسب المقاس وخياطة دقيقة في مشغلنا بالرياض." },
         { title: "التركيب", body: "تركيب نظيف وتشطيب نهائي وتنظيف بعد العمل." },
       ],
     },
@@ -233,9 +233,9 @@ export const COPY = {
       title: "Why Riyadh clients choose us",
       items: [
         { title: "Free on-site measuring", body: "We visit, measure and advise on the right fabric — at no cost." },
-        { title: "Original materials", body: "Hand-picked imported fabrics with real samples before you order." },
-        { title: "Professional installation", body: "Trained fitters using high-quality tracks and hardware." },
-        { title: "One-year warranty", body: "Covering stitching, installation and motorized systems." },
+        { title: "Quality fabrics", body: "Carefully selected fabrics with real samples presented before ordering." },
+        { title: "Professional installation", body: "Trained Riyadh fitters using high-quality tracks and hardware." },
+        { title: "Made-to-measure finishing", body: "Tailored to your exact window dimensions with neat final dressing." },
       ],
     },
     install: {
@@ -244,7 +244,7 @@ export const COPY = {
       steps: [
         { title: "Visit & measure", body: "We take exact measurements and discuss style and light." },
         { title: "Choose fabric", body: "Fabric and colour samples presented in your own space." },
-        { title: "Tailoring", body: "Precision sewing in our workshop within 5–10 working days." },
+        { title: "Tailoring", body: "Precision made-to-measure sewing in our Riyadh workshop." },
         { title: "Installation", body: "Clean fitting, final dressing and a tidy handover." },
       ],
     },

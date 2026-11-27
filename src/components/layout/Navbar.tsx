@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { Menu, X, Moon, Sun, MessageCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { useTheme } from "@/lib/theme";
-import { BRAND, CONTACT } from "@/lib/constants";
+import { BRAND, getWhatsAppUrl } from "@/lib/constants";
 import { COPY } from "@/lib/catalog";
+import { trackWhatsAppClick } from "@/lib/tracking";
 
 export function Navbar() {
   const { t, locale, toggle: toggleLang } = useI18n();
@@ -20,6 +21,7 @@ export function Navbar() {
   }, []);
 
   const c = COPY[locale];
+  const whatsappUrl = getWhatsAppUrl(locale);
   const links = [
     { to: "/", label: t.nav.home },
     { to: "/curtains", label: c.nav.curtains },
@@ -40,15 +42,15 @@ export function Navbar() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 md:h-20 md:px-6">
         <Link to="/" className="flex shrink-0 items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-gold text-primary-foreground font-bold">
-            M
+          <span className="grid h-9 w-9 place-items-center rounded-full bg-gold text-xs font-bold text-primary-foreground">
+            {BRAND.shortMark}
           </span>
           <span className="hidden font-bold tracking-tight sm:block">
             {locale === "ar" ? BRAND.name_ar : BRAND.name_en}
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
           {links.map((l) => (
             <Link
               key={l.to}
@@ -67,31 +69,36 @@ export function Navbar() {
 
         <div className="flex items-center gap-1.5">
           <button
+            type="button"
             onClick={toggleLang}
-            aria-label="Toggle language"
+            aria-label={locale === "ar" ? "Switch to English" : "التبديل إلى العربية"}
             className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold tracking-wider text-foreground/80 transition hover:border-gold hover:text-gold"
           >
             {locale === "ar" ? "EN" : "AR"}
           </button>
           <button
+            type="button"
             onClick={toggleTheme}
-            aria-label="Toggle theme"
+            aria-label={locale === "ar" ? "تبديل المظهر" : "Toggle theme"}
             className="grid h-9 w-9 place-items-center rounded-full border border-border text-foreground/80 transition hover:border-gold hover:text-gold"
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           <a
-            href={CONTACT.whatsapp}
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick("navbar_desktop")}
             className="hidden items-center gap-2 rounded-full bg-gold px-4 py-2 text-sm font-semibold text-primary-foreground shadow-luxury transition hover:bg-gold-dark md:inline-flex"
           >
             <MessageCircle size={16} />
             {t.nav.cta}
           </a>
           <button
+            type="button"
             onClick={() => setOpen((v) => !v)}
-            aria-label="Menu"
+            aria-label={locale === "ar" ? "القائمة" : "Menu"}
+            aria-expanded={open}
             className="grid h-9 w-9 place-items-center rounded-full border border-border lg:hidden"
           >
             {open ? <X size={18} /> : <Menu size={18} />}
@@ -105,7 +112,7 @@ export function Navbar() {
           open ? "max-h-96" : "max-h-0"
         }`}
       >
-        <nav className="flex flex-col px-4 py-3">
+        <nav className="flex flex-col px-4 py-3" aria-label="Mobile navigation">
           {links.map((l) => (
             <Link
               key={l.to}
@@ -119,9 +126,13 @@ export function Navbar() {
             </Link>
           ))}
           <a
-            href={CONTACT.whatsapp}
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              setOpen(false);
+              trackWhatsAppClick("navbar_mobile");
+            }}
             className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-4 py-2.5 text-sm font-semibold text-primary-foreground"
           >
             <MessageCircle size={16} /> {t.nav.cta}

@@ -1,5 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { useRouterState } from "@tanstack/react-router";
 import { translations, type Locale, type Dict } from "./translations";
+import { getLocalizedTitleAndDescription } from "./seo";
 
 interface I18nContextValue {
   locale: Locale;
@@ -15,6 +17,7 @@ const STORAGE_KEY = "majlis_locale";
 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("ar");
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   // Read saved locale after hydration
   useEffect(() => {
@@ -26,12 +29,19 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  // Sync <html dir> and lang
+  // Sync <html dir>, lang, and localized document title/description
   useEffect(() => {
     const dir = locale === "ar" ? "rtl" : "ltr";
     document.documentElement.setAttribute("dir", dir);
     document.documentElement.setAttribute("lang", locale);
-  }, [locale]);
+
+    const seo = getLocalizedTitleAndDescription(pathname, locale);
+    document.title = seo.title;
+    const descEl = document.querySelector('meta[name="description"]');
+    if (descEl) {
+      descEl.setAttribute("content", seo.description);
+    }
+  }, [locale, pathname]);
 
   const setLocale = useCallback((l: Locale) => {
     setLocaleState(l);

@@ -1,21 +1,23 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { BRAND, CONTACT } from "@/lib/constants";
+import { BRAND, CONTACT, getWhatsAppUrl } from "@/lib/constants";
 import { COPY } from "@/lib/catalog";
+import { trackPhoneClick, trackWhatsAppClick } from "@/lib/tracking";
 
 export function Footer() {
   const { t, locale } = useI18n();
   const c = COPY[locale];
   const year = new Date().getFullYear();
+  const whatsappUrl = getWhatsAppUrl(locale);
 
   return (
     <footer className="bg-[oklch(0.16_0.005_60)] text-[oklch(0.95_0.015_80)]">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-2 md:px-6 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-gold text-[oklch(0.15_0.005_60)] font-bold">
-              M
+            <span className="grid h-9 w-9 place-items-center rounded-full bg-gold text-xs font-bold text-[oklch(0.15_0.005_60)]">
+              {BRAND.shortMark}
             </span>
             <span className="font-bold">{locale === "ar" ? BRAND.name_ar : BRAND.name_en}</span>
           </div>
@@ -43,9 +45,9 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold tracking-wider text-gold uppercase">
+          <h2 className="text-sm font-semibold tracking-wider text-gold uppercase">
             {t.footer.services_col}
-          </h4>
+          </h2>
           <ul className="mt-4 space-y-2 text-sm text-white/75">
             <li><Link to="/curtains" className="hover:text-gold">{c.nav.curtains}</Link></li>
             <li><Link to="/blinds" className="hover:text-gold">{c.nav.blinds}</Link></li>
@@ -56,9 +58,9 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold tracking-wider text-gold uppercase">
+          <h2 className="text-sm font-semibold tracking-wider text-gold uppercase">
             {t.footer.links_col}
-          </h4>
+          </h2>
           <ul className="mt-4 space-y-2 text-sm text-white/75">
             <li><Link to="/about" className="hover:text-gold">{t.nav.about}</Link></li>
             <li><Link to="/portfolio" className="hover:text-gold">{t.nav.portfolio}</Link></li>
@@ -67,20 +69,31 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold tracking-wider text-gold uppercase">
+          <h2 className="text-sm font-semibold tracking-wider text-gold uppercase">
             {t.footer.contact_col}
-          </h4>
+          </h2>
           <ul className="mt-4 space-y-3 text-sm text-white/75">
             <li className="flex items-center gap-2">
               <Phone size={14} className="text-gold shrink-0" />
-              <a href={`tel:${CONTACT.phoneRaw}`} dir="ltr" className="hover:text-gold">
+              <a
+                href={`tel:${CONTACT.phoneRaw}`}
+                dir="ltr"
+                onClick={() => trackPhoneClick("footer")}
+                className="hover:text-gold"
+              >
                 {CONTACT.phone}
               </a>
             </li>
             <li className="flex items-center gap-2">
               <MessageCircle size={14} className="text-gold shrink-0" />
-              <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-gold">
-                WhatsApp
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("footer")}
+                className="hover:text-gold"
+              >
+                {t.common.whatsapp}
               </a>
             </li>
             <li className="flex items-center gap-2">
