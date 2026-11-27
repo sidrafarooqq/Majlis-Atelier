@@ -1,12 +1,12 @@
 import { o as __toESM } from "../_runtime.mjs";
 import { n as require_jsx_runtime, r as require_react, t as QueryClientProvider } from "../_libs/react+tanstack__react-query.mjs";
-import { N as useRouter, c as HeadContent, d as createRouter, f as Outlet, g as Link, h as createRootRouteWithContext, l as useRouterState, m as createFileRoute, p as lazyRouteComponent, s as Scripts } from "../_libs/@tanstack/react-router+[...].mjs";
+import { Ct as Link, Ht as useRouter, St as createRootRouteWithContext, bt as lazyRouteComponent, gt as useRouterState, ht as HeadContent, mt as Scripts, vt as createRouter, xt as createFileRoute, yt as Outlet } from "../_libs/@tanstack/react-router+[...].mjs";
 import { c as SITE_URL, d as useI18n, i as COPY, l as buildRouteHead, n as BRAND, o as I18nProvider, r as CONTACT, u as getWhatsAppUrl } from "./catalog-5x0Ua0_T.mjs";
 import { a as trackPhoneClick, i as trackPageView, n as GTM_CONTAINER_ID, o as trackWhatsAppClick, t as GOOGLE_ADS_ID } from "./tracking-D01QA9gJ.mjs";
 import { c as Moon, d as MapPin, f as Mail, h as Facebook, l as MessageCircle, p as Instagram, r as Sun, s as Phone, t as X, u as Menu } from "../_libs/lucide-react.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { i as stringType, n as numberType, r as objectType, t as enumType } from "../_libs/zod.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-Cv_q-ka5.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-96636txa.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var styles_default = "/assets/styles-BR7690tV.css";
@@ -576,8 +576,144 @@ function RootComponent() {
 		})] }) })
 	});
 }
+var $$splitComponentImporter$6 = () => import("./routes-BCMkWaNO.mjs");
+var Route$8 = createFileRoute("/")({
+	head: () => buildRouteHead({
+		path: "/",
+		title: "تفصيل ستائر سامي | تفصيل وتركيب ستائر وبليندات بالرياض | Tafseel Satair Sami",
+		description: "محل تفصيل ستائر بالرياض — تفصيل ستائر حسب المقاس، ستائر فاخرة وعصرية، ستائر رول وزيبرا وبلاك أوت، تركيب ستائر بالرياض وتنجيد كنب مع قياس مجاني. Custom curtains, roller & zebra blinds and curtain installation in Riyadh.",
+		keywords: "تفصيل ستائر بالرياض, ستائر الرياض, محل ستائر بالرياض, تركيب ستائر بالرياض, ستائر فاخرة بالرياض, ستائر عصرية بالرياض, تفصيل ستائر حسب المقاس, ستائر رول الرياض, ستائر زيبرا الرياض, Curtains in Riyadh, Custom Curtains Riyadh, Curtain Tailoring Riyadh, Curtain Installation Riyadh, Luxury Curtains Riyadh, Modern Curtains Riyadh, Roller Blinds Riyadh, Zebra Blinds Riyadh, Window Curtains Riyadh, Made to Measure Curtains Riyadh",
+		ogTitle: "Tafseel Satair Sami — Custom Curtains & Blinds in Riyadh | تفصيل ستائر سامي",
+		ogDescription: "Made to measure curtains, roller & zebra blinds, and professional curtain installation in Riyadh, Saudi Arabia.",
+		includeBusinessGraph: true,
+		service: {
+			name: "Custom Curtains, Blinds & Upholstery in Riyadh",
+			description: "Made-to-measure curtain tailoring, luxury and modern window curtains, roller blinds, zebra blinds, curtain installation, and sofa upholstery in Riyadh.",
+			serviceTypes: [
+				"Custom Curtains Riyadh",
+				"Curtain Tailoring Riyadh",
+				"Curtain Installation Riyadh",
+				"Roller Blinds Riyadh",
+				"Zebra Blinds Riyadh",
+				"Sofa Upholstery Riyadh"
+			]
+		}
+	}),
+	component: lazyRouteComponent($$splitComponentImporter$6, "component")
+});
+var $$splitComponentImporter$5 = () => import("./about-CQSPnJEJ.mjs");
+var Route$7 = createFileRoute("/about")({
+	head: () => buildRouteHead({
+		path: "/about",
+		title: "من نحن — تفصيل ستائر سامي بالرياض | Tafseel Satair Sami",
+		description: "تعرّف على تفصيل ستائر سامي — محل ستائر بالرياض متخصص في تفصيل ستائر حسب المقاس، ستائر فاخرة وعصرية، ستائر رول وزيبرا وتركيب ستائر بالرياض. About Tafseel Satair Sami in Riyadh.",
+		keywords: "تفصيل ستائر سامي, محل ستائر بالرياض, تفصيل ستائر بالرياض, تركيب ستائر بالرياض, Tafseel Satair Sami, Curtains in Riyadh, Curtain Tailoring Riyadh",
+		ogTitle: "About Tafseel Satair Sami — Riyadh Custom Curtains & Upholstery",
+		ogDescription: "Made-to-measure curtains, blinds, and sofa upholstery crafted in Riyadh, Saudi Arabia.",
+		breadcrumbName: "About",
+		includeBusinessGraph: true
+	}),
+	component: lazyRouteComponent($$splitComponentImporter$5, "component")
+});
+var $$splitComponentImporter$4 = () => import("./blinds-DOUHXPxl.mjs");
+var Route$6 = createFileRoute("/blinds")({
+	head: () => buildRouteHead({
+		path: "/blinds",
+		title: "ستائر رول وزيبرا ورومانية بالرياض | Roller & Zebra Blinds Riyadh | Tafseel Satair Sami",
+		description: "ستائر رول الرياض، ستائر زيبرا الرياض، ستائر رومانية وخشبية وكهربائية ذكية مع قياس مجاني وتركيب احترافي في الرياض. Roller blinds Riyadh, zebra blinds Riyadh, Roman, wooden & motorized blinds.",
+		keywords: "ستائر رول الرياض, ستائر زيبرا الرياض, تفصيل ستائر بالرياض, تركيب ستائر بالرياض, Roller Blinds Riyadh, Zebra Blinds Riyadh, Roman Blinds Riyadh, Window Curtains Riyadh",
+		ogTitle: "Roller & Zebra Blinds Riyadh — Roman & Wooden | Tafseel Satair Sami",
+		ogDescription: "Roller blinds, zebra blinds, Roman, wooden and motorized blinds, custom-measured and installed in Riyadh.",
+		breadcrumbName: "Blinds",
+		service: {
+			name: "Roller, Zebra & Motorized Blinds in Riyadh",
+			description: "Custom roller blinds, zebra blinds, Roman blinds, wooden blinds and motorized window blinds with free measuring and installation in Riyadh.",
+			serviceTypes: [
+				"Roller Blinds Riyadh",
+				"Zebra Blinds Riyadh",
+				"Roman Blinds Riyadh",
+				"Motorized Blinds Riyadh"
+			]
+		}
+	}),
+	component: lazyRouteComponent($$splitComponentImporter$4, "component")
+});
+var $$splitComponentImporter$3 = () => import("./contact--Wj0JDZe.mjs");
+var Route$5 = createFileRoute("/contact")({
+	head: () => buildRouteHead({
+		path: "/contact",
+		title: "اتصل بنا — تفصيل ستائر سامي بالرياض | Contact Tafseel Satair Sami",
+		description: "تواصل مع تفصيل ستائر سامي بالرياض — اتصال (+966 54 847 3140)، واتساب، أو نموذج تواصل لطلب قياس مجاني وعرض سعر لتفصيل وتركيب الستائر. Contact Tafseel Satair Sami in Riyadh.",
+		keywords: "اتصل بنا تفصيل ستائر بالرياض, رقم محل ستائر بالرياض, حجز قياس ستائر بالرياض, Contact Curtains Riyadh, Free Curtain Measurement Riyadh",
+		ogTitle: "Contact Us — Free Curtain Measurement in Riyadh | Tafseel Satair Sami",
+		ogDescription: "Call, WhatsApp (+966 54 847 3140), or submit an enquiry for free curtain measurement in Riyadh.",
+		breadcrumbName: "Contact",
+		includeBusinessGraph: true
+	}),
+	component: lazyRouteComponent($$splitComponentImporter$3, "component")
+});
+var $$splitComponentImporter$2 = () => import("./curtains-XBAiaXPX.mjs");
+var Route$4 = createFileRoute("/curtains")({
+	head: () => buildRouteHead({
+		path: "/curtains",
+		title: "مجموعة الستائر — تفصيل ستائر فاخرة وعصرية بالرياض | Tafseel Satair Sami",
+		description: "تفصيل ستائر بالرياض حسب المقاس: ستائر بلاك أوت، شيفون، مخمل، كتّان، ستائر عصرية وكلاسيكية وكهربائية مع قياس مجاني وتركيب ستائر بالرياض. Custom curtains, luxury, modern, blackout, sheer & motorized window curtains in Riyadh.",
+		keywords: "تفصيل ستائر بالرياض, ستائر الرياض, تفصيل ستائر حسب المقاس, ستائر فاخرة بالرياض, ستائر عصرية بالرياض, تركيب ستائر بالرياض, Custom Curtains Riyadh, Luxury Curtains Riyadh, Modern Curtains Riyadh, Window Curtains Riyadh, Made to Measure Curtains Riyadh",
+		ogTitle: "Custom Curtains Riyadh — Luxury, Modern, Blackout & Sheer | Tafseel Satair Sami",
+		ogDescription: "Made to measure window curtains in Riyadh: blackout, sheer, velvet, linen, modern ripple-fold, classic and motorized curtains.",
+		breadcrumbName: "Curtains",
+		service: {
+			name: "Custom Curtain Tailoring & Installation in Riyadh",
+			description: "Made-to-measure luxury, modern, blackout, sheer, velvet, linen and motorized window curtains with free measuring and installation in Riyadh.",
+			serviceTypes: [
+				"Custom Curtains Riyadh",
+				"Luxury Curtains Riyadh",
+				"Modern Curtains Riyadh",
+				"Made to Measure Curtains Riyadh",
+				"Blackout Curtains Riyadh"
+			]
+		}
+	}),
+	component: lazyRouteComponent($$splitComponentImporter$2, "component")
+});
+var $$splitComponentImporter$1 = () => import("./portfolio-Ob7mfniQ.mjs");
+var Route$3 = createFileRoute("/portfolio")({
+	head: () => buildRouteHead({
+		path: "/portfolio",
+		title: "أعمالنا — مشاريع تفصيل وتركيب ستائر بالرياض | Tafseel Satair Sami",
+		description: "معرض أعمال تفصيل ستائر سامي بالرياض: ستائر مجالس، ستائر عصرية، ستائر بلاك أوت وشيفون وبليندات وتنجيد كنب. Selected custom curtains, blinds and upholstery projects in Riyadh.",
+		keywords: "معرض أعمال ستائر بالرياض, تفصيل ستائر بالرياض, تركيب ستائر بالرياض, ستائر عصرية بالرياض, Custom Curtains Riyadh, Curtain Installation Riyadh",
+		ogTitle: "Portfolio — Custom Curtains & Majlis Projects Riyadh | Tafseel Satair Sami",
+		ogDescription: "Selected custom curtain, blinds, sofa and upholstery projects delivered in Riyadh.",
+		breadcrumbName: "Portfolio"
+	}),
+	component: lazyRouteComponent($$splitComponentImporter$1, "component")
+});
+var $$splitComponentImporter = () => import("./services-Tms8LZba.mjs");
+var Route$2 = createFileRoute("/services")({
+	head: () => buildRouteHead({
+		path: "/services",
+		title: "خدماتنا — تفصيل وتركيب الستائر وتنجيد الكنب بالرياض | Tafseel Satair Sami",
+		description: "خدمات تفصيل ستائر حسب المقاس، تركيب ستائر بالرياض، تنجيد الكنب وتفصيل الكنب المخصص في الرياض. Curtain tailoring Riyadh, curtain installation Riyadh, sofa upholstery and custom sofas.",
+		keywords: "تفصيل ستائر بالرياض, تركيب ستائر بالرياض, محل ستائر بالرياض, تنجيد كنب الرياض, Curtain Tailoring Riyadh, Curtain Installation Riyadh, Custom Curtains Riyadh",
+		ogTitle: "Services — Curtain Tailoring, Installation & Upholstery Riyadh | Tafseel Satair Sami",
+		ogDescription: "Curtain tailoring, curtain installation, sofa upholstery and custom sofas in Riyadh.",
+		breadcrumbName: "Services",
+		service: {
+			name: "Curtain Tailoring, Installation & Sofa Upholstery Riyadh",
+			description: "Made-to-measure curtain tailoring, professional curtain installation, sofa upholstery and custom sofa crafting in Riyadh.",
+			serviceTypes: [
+				"Curtain Tailoring Riyadh",
+				"Curtain Installation Riyadh",
+				"Sofa Upholstery Riyadh",
+				"Custom Sofa Making Riyadh"
+			]
+		}
+	}),
+	component: lazyRouteComponent($$splitComponentImporter, "component")
+});
 var LASTMOD = "2026-11-27";
-var Route$8 = createFileRoute("/sitemap.xml")({ server: { handlers: { GET: async () => {
+var Route$1 = createFileRoute("/sitemap.xml")({ server: { handlers: { GET: async () => {
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[
 		{
 			path: "/",
@@ -627,142 +763,6 @@ var Route$8 = createFileRoute("/sitemap.xml")({ server: { handlers: { GET: async
 		"Cache-Control": "public, max-age=3600"
 	} });
 } } } });
-var $$splitComponentImporter$6 = () => import("./services-Tms8LZba.mjs");
-var Route$7 = createFileRoute("/services")({
-	head: () => buildRouteHead({
-		path: "/services",
-		title: "خدماتنا — تفصيل وتركيب الستائر وتنجيد الكنب بالرياض | Tafseel Satair Sami",
-		description: "خدمات تفصيل ستائر حسب المقاس، تركيب ستائر بالرياض، تنجيد الكنب وتفصيل الكنب المخصص في الرياض. Curtain tailoring Riyadh, curtain installation Riyadh, sofa upholstery and custom sofas.",
-		keywords: "تفصيل ستائر بالرياض, تركيب ستائر بالرياض, محل ستائر بالرياض, تنجيد كنب الرياض, Curtain Tailoring Riyadh, Curtain Installation Riyadh, Custom Curtains Riyadh",
-		ogTitle: "Services — Curtain Tailoring, Installation & Upholstery Riyadh | Tafseel Satair Sami",
-		ogDescription: "Curtain tailoring, curtain installation, sofa upholstery and custom sofas in Riyadh.",
-		breadcrumbName: "Services",
-		service: {
-			name: "Curtain Tailoring, Installation & Sofa Upholstery Riyadh",
-			description: "Made-to-measure curtain tailoring, professional curtain installation, sofa upholstery and custom sofa crafting in Riyadh.",
-			serviceTypes: [
-				"Curtain Tailoring Riyadh",
-				"Curtain Installation Riyadh",
-				"Sofa Upholstery Riyadh",
-				"Custom Sofa Making Riyadh"
-			]
-		}
-	}),
-	component: lazyRouteComponent($$splitComponentImporter$6, "component")
-});
-var $$splitComponentImporter$5 = () => import("./portfolio-Ob7mfniQ.mjs");
-var Route$6 = createFileRoute("/portfolio")({
-	head: () => buildRouteHead({
-		path: "/portfolio",
-		title: "أعمالنا — مشاريع تفصيل وتركيب ستائر بالرياض | Tafseel Satair Sami",
-		description: "معرض أعمال تفصيل ستائر سامي بالرياض: ستائر مجالس، ستائر عصرية، ستائر بلاك أوت وشيفون وبليندات وتنجيد كنب. Selected custom curtains, blinds and upholstery projects in Riyadh.",
-		keywords: "معرض أعمال ستائر بالرياض, تفصيل ستائر بالرياض, تركيب ستائر بالرياض, ستائر عصرية بالرياض, Custom Curtains Riyadh, Curtain Installation Riyadh",
-		ogTitle: "Portfolio — Custom Curtains & Majlis Projects Riyadh | Tafseel Satair Sami",
-		ogDescription: "Selected custom curtain, blinds, sofa and upholstery projects delivered in Riyadh.",
-		breadcrumbName: "Portfolio"
-	}),
-	component: lazyRouteComponent($$splitComponentImporter$5, "component")
-});
-var $$splitComponentImporter$4 = () => import("./curtains-XBAiaXPX.mjs");
-var Route$5 = createFileRoute("/curtains")({
-	head: () => buildRouteHead({
-		path: "/curtains",
-		title: "مجموعة الستائر — تفصيل ستائر فاخرة وعصرية بالرياض | Tafseel Satair Sami",
-		description: "تفصيل ستائر بالرياض حسب المقاس: ستائر بلاك أوت، شيفون، مخمل، كتّان، ستائر عصرية وكلاسيكية وكهربائية مع قياس مجاني وتركيب ستائر بالرياض. Custom curtains, luxury, modern, blackout, sheer & motorized window curtains in Riyadh.",
-		keywords: "تفصيل ستائر بالرياض, ستائر الرياض, تفصيل ستائر حسب المقاس, ستائر فاخرة بالرياض, ستائر عصرية بالرياض, تركيب ستائر بالرياض, Custom Curtains Riyadh, Luxury Curtains Riyadh, Modern Curtains Riyadh, Window Curtains Riyadh, Made to Measure Curtains Riyadh",
-		ogTitle: "Custom Curtains Riyadh — Luxury, Modern, Blackout & Sheer | Tafseel Satair Sami",
-		ogDescription: "Made to measure window curtains in Riyadh: blackout, sheer, velvet, linen, modern ripple-fold, classic and motorized curtains.",
-		breadcrumbName: "Curtains",
-		service: {
-			name: "Custom Curtain Tailoring & Installation in Riyadh",
-			description: "Made-to-measure luxury, modern, blackout, sheer, velvet, linen and motorized window curtains with free measuring and installation in Riyadh.",
-			serviceTypes: [
-				"Custom Curtains Riyadh",
-				"Luxury Curtains Riyadh",
-				"Modern Curtains Riyadh",
-				"Made to Measure Curtains Riyadh",
-				"Blackout Curtains Riyadh"
-			]
-		}
-	}),
-	component: lazyRouteComponent($$splitComponentImporter$4, "component")
-});
-var $$splitComponentImporter$3 = () => import("./contact--Wj0JDZe.mjs");
-var Route$4 = createFileRoute("/contact")({
-	head: () => buildRouteHead({
-		path: "/contact",
-		title: "اتصل بنا — تفصيل ستائر سامي بالرياض | Contact Tafseel Satair Sami",
-		description: "تواصل مع تفصيل ستائر سامي بالرياض — اتصال (+966 54 847 3140)، واتساب، أو نموذج تواصل لطلب قياس مجاني وعرض سعر لتفصيل وتركيب الستائر. Contact Tafseel Satair Sami in Riyadh.",
-		keywords: "اتصل بنا تفصيل ستائر بالرياض, رقم محل ستائر بالرياض, حجز قياس ستائر بالرياض, Contact Curtains Riyadh, Free Curtain Measurement Riyadh",
-		ogTitle: "Contact Us — Free Curtain Measurement in Riyadh | Tafseel Satair Sami",
-		ogDescription: "Call, WhatsApp (+966 54 847 3140), or submit an enquiry for free curtain measurement in Riyadh.",
-		breadcrumbName: "Contact",
-		includeBusinessGraph: true
-	}),
-	component: lazyRouteComponent($$splitComponentImporter$3, "component")
-});
-var $$splitComponentImporter$2 = () => import("./blinds-DOUHXPxl.mjs");
-var Route$3 = createFileRoute("/blinds")({
-	head: () => buildRouteHead({
-		path: "/blinds",
-		title: "ستائر رول وزيبرا ورومانية بالرياض | Roller & Zebra Blinds Riyadh | Tafseel Satair Sami",
-		description: "ستائر رول الرياض، ستائر زيبرا الرياض، ستائر رومانية وخشبية وكهربائية ذكية مع قياس مجاني وتركيب احترافي في الرياض. Roller blinds Riyadh, zebra blinds Riyadh, Roman, wooden & motorized blinds.",
-		keywords: "ستائر رول الرياض, ستائر زيبرا الرياض, تفصيل ستائر بالرياض, تركيب ستائر بالرياض, Roller Blinds Riyadh, Zebra Blinds Riyadh, Roman Blinds Riyadh, Window Curtains Riyadh",
-		ogTitle: "Roller & Zebra Blinds Riyadh — Roman & Wooden | Tafseel Satair Sami",
-		ogDescription: "Roller blinds, zebra blinds, Roman, wooden and motorized blinds, custom-measured and installed in Riyadh.",
-		breadcrumbName: "Blinds",
-		service: {
-			name: "Roller, Zebra & Motorized Blinds in Riyadh",
-			description: "Custom roller blinds, zebra blinds, Roman blinds, wooden blinds and motorized window blinds with free measuring and installation in Riyadh.",
-			serviceTypes: [
-				"Roller Blinds Riyadh",
-				"Zebra Blinds Riyadh",
-				"Roman Blinds Riyadh",
-				"Motorized Blinds Riyadh"
-			]
-		}
-	}),
-	component: lazyRouteComponent($$splitComponentImporter$2, "component")
-});
-var $$splitComponentImporter$1 = () => import("./about-CQSPnJEJ.mjs");
-var Route$2 = createFileRoute("/about")({
-	head: () => buildRouteHead({
-		path: "/about",
-		title: "من نحن — تفصيل ستائر سامي بالرياض | Tafseel Satair Sami",
-		description: "تعرّف على تفصيل ستائر سامي — محل ستائر بالرياض متخصص في تفصيل ستائر حسب المقاس، ستائر فاخرة وعصرية، ستائر رول وزيبرا وتركيب ستائر بالرياض. About Tafseel Satair Sami in Riyadh.",
-		keywords: "تفصيل ستائر سامي, محل ستائر بالرياض, تفصيل ستائر بالرياض, تركيب ستائر بالرياض, Tafseel Satair Sami, Curtains in Riyadh, Curtain Tailoring Riyadh",
-		ogTitle: "About Tafseel Satair Sami — Riyadh Custom Curtains & Upholstery",
-		ogDescription: "Made-to-measure curtains, blinds, and sofa upholstery crafted in Riyadh, Saudi Arabia.",
-		breadcrumbName: "About",
-		includeBusinessGraph: true
-	}),
-	component: lazyRouteComponent($$splitComponentImporter$1, "component")
-});
-var $$splitComponentImporter = () => import("./routes-BCMkWaNO.mjs");
-var Route$1 = createFileRoute("/")({
-	head: () => buildRouteHead({
-		path: "/",
-		title: "تفصيل ستائر سامي | تفصيل وتركيب ستائر وبليندات بالرياض | Tafseel Satair Sami",
-		description: "محل تفصيل ستائر بالرياض — تفصيل ستائر حسب المقاس، ستائر فاخرة وعصرية، ستائر رول وزيبرا وبلاك أوت، تركيب ستائر بالرياض وتنجيد كنب مع قياس مجاني. Custom curtains, roller & zebra blinds and curtain installation in Riyadh.",
-		keywords: "تفصيل ستائر بالرياض, ستائر الرياض, محل ستائر بالرياض, تركيب ستائر بالرياض, ستائر فاخرة بالرياض, ستائر عصرية بالرياض, تفصيل ستائر حسب المقاس, ستائر رول الرياض, ستائر زيبرا الرياض, Curtains in Riyadh, Custom Curtains Riyadh, Curtain Tailoring Riyadh, Curtain Installation Riyadh, Luxury Curtains Riyadh, Modern Curtains Riyadh, Roller Blinds Riyadh, Zebra Blinds Riyadh, Window Curtains Riyadh, Made to Measure Curtains Riyadh",
-		ogTitle: "Tafseel Satair Sami — Custom Curtains & Blinds in Riyadh | تفصيل ستائر سامي",
-		ogDescription: "Made to measure curtains, roller & zebra blinds, and professional curtain installation in Riyadh, Saudi Arabia.",
-		includeBusinessGraph: true,
-		service: {
-			name: "Custom Curtains, Blinds & Upholstery in Riyadh",
-			description: "Made-to-measure curtain tailoring, luxury and modern window curtains, roller blinds, zebra blinds, curtain installation, and sofa upholstery in Riyadh.",
-			serviceTypes: [
-				"Custom Curtains Riyadh",
-				"Curtain Tailoring Riyadh",
-				"Curtain Installation Riyadh",
-				"Roller Blinds Riyadh",
-				"Zebra Blinds Riyadh",
-				"Sofa Upholstery Riyadh"
-			]
-		}
-	}),
-	component: lazyRouteComponent($$splitComponentImporter, "component")
-});
 var DEFAULT_TO_EMAIL = "tafseelsatairsami@gmail.com";
 var DEFAULT_FROM_EMAIL = "Tafseel Satair Sami <onboarding@resend.dev>";
 var contactSchema = objectType({
@@ -954,54 +954,47 @@ var Route = createFileRoute("/api/contact")({ server: { handlers: { POST: async 
 		}, 502);
 	}
 } } } });
-var SitemapDotxmlRoute = Route$8.update({
-	id: "/sitemap.xml",
-	path: "/sitemap.xml",
-	getParentRoute: () => Route$9
-});
-var ServicesRoute = Route$7.update({
-	id: "/services",
-	path: "/services",
-	getParentRoute: () => Route$9
-});
-var PortfolioRoute = Route$6.update({
-	id: "/portfolio",
-	path: "/portfolio",
-	getParentRoute: () => Route$9
-});
-var CurtainsRoute = Route$5.update({
-	id: "/curtains",
-	path: "/curtains",
-	getParentRoute: () => Route$9
-});
-var ContactRoute = Route$4.update({
-	id: "/contact",
-	path: "/contact",
-	getParentRoute: () => Route$9
-});
-var BlindsRoute = Route$3.update({
-	id: "/blinds",
-	path: "/blinds",
-	getParentRoute: () => Route$9
-});
-var AboutRoute = Route$2.update({
-	id: "/about",
-	path: "/about",
-	getParentRoute: () => Route$9
-});
 var rootRouteChildren = {
-	IndexRoute: Route$1.update({
+	IndexRoute: Route$8.update({
 		id: "/",
 		path: "/",
 		getParentRoute: () => Route$9
 	}),
-	AboutRoute,
-	BlindsRoute,
-	ContactRoute,
-	CurtainsRoute,
-	PortfolioRoute,
-	ServicesRoute,
-	SitemapDotxmlRoute,
+	AboutRoute: Route$7.update({
+		id: "/about",
+		path: "/about",
+		getParentRoute: () => Route$9
+	}),
+	BlindsRoute: Route$6.update({
+		id: "/blinds",
+		path: "/blinds",
+		getParentRoute: () => Route$9
+	}),
+	ContactRoute: Route$5.update({
+		id: "/contact",
+		path: "/contact",
+		getParentRoute: () => Route$9
+	}),
+	CurtainsRoute: Route$4.update({
+		id: "/curtains",
+		path: "/curtains",
+		getParentRoute: () => Route$9
+	}),
+	PortfolioRoute: Route$3.update({
+		id: "/portfolio",
+		path: "/portfolio",
+		getParentRoute: () => Route$9
+	}),
+	ServicesRoute: Route$2.update({
+		id: "/services",
+		path: "/services",
+		getParentRoute: () => Route$9
+	}),
+	SitemapDotxmlRoute: Route$1.update({
+		id: "/sitemap.xml",
+		path: "/sitemap.xml",
+		getParentRoute: () => Route$9
+	}),
 	ApiContactRoute: Route.update({
 		id: "/api/contact",
 		path: "/api/contact",

@@ -1,5 +1,5 @@
 import { n as require_jsx_runtime } from "../_libs/react+tanstack__react-query.mjs";
-import { g as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { Ct as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { d as useI18n, i as COPY, r as CONTACT, s as IMAGES, t as BLIND_CATEGORIES, u as getWhatsAppUrl } from "./catalog-5x0Ua0_T.mjs";
 import { a as trackPhoneClick, o as trackWhatsAppClick } from "./tracking-D01QA9gJ.mjs";
 import { t as SectionTitle } from "./SectionTitle-C_vcQ0pE.mjs";
