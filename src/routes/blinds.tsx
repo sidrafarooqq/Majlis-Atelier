@@ -9,6 +9,7 @@ import { buildRouteHead } from "@/lib/seo";
 import { trackPhoneClick, trackWhatsAppClick } from "@/lib/tracking";
 
 export const Route = createFileRoute("/blinds")({
+ 
   head: () =>
     buildRouteHead({
       path: "/blinds",
